@@ -55,3 +55,18 @@ class IntelImageClassificationDataset:
             4: "sea",
             5: "street"
         }[i]
+
+
+##########Elsayed Ibrahim
+class CachedDataset(Dataset):
+    def __init__(self, original_dataset):
+        print("Caching all data in RAM...")
+        self.data = [item for item in original_dataset]
+        print(f"Cached {len(self.data)} samples.")
+
+    def __getitem__(self, idx):
+        return self.data[idx]
+
+    def __len__(self):
+        return len(self.data)
+##############################
